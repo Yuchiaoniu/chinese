@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>課文 — 南一版國中國文</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .lesson-detail { max-width: 760px; margin: 2rem auto; padding: 0 1.5rem; }
+
+    .breadcrumb { font-size: .85rem; color: #888; margin-bottom: 1.25rem; }
+    .breadcrumb a { color: #8b1a1a; text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .lesson-hero {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .lesson-vol-label {
+      font-size: .8rem;
+      background: #f0e8da;
+      color: #7a5030;
+      padding: .25rem .75rem;
+      border-radius: 10px;
+      display: inline-block;
+      margin-bottom: .75rem;
+      font-weight: 500;
+    }
+    .lesson-hero h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: .5rem;
+      line-height: 1.3;
+    }
+    .lesson-meta {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: .75rem;
+    }
+    .meta-author { font-size: 1rem; color: #5a4a38; font-weight: 500; }
+    .meta-type {
+      font-size: .8rem;
+      padding: .2rem .7rem;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+    .meta-type.poem    { background: #e8f0fe; color: #1a4a8b; }
+    .meta-type.prose   { background: #fef3e2; color: #8b5e00; }
+    .meta-type.classic { background: #e8e4f4; color: #4a3d8f; }
+    .meta-type.fiction { background: #fce8f0; color: #8b1a4a; }
+    .meta-type.default { background: #f0f0f0; color: #888; }
+
+    .lesson-body { line-height: 1.95; color: #2a2a2a; font-size: .97rem; }
+    .lesson-body p { margin-bottom: 1.1rem; }
+    .poem-title { font-weight: 700; color: #5a3820; margin: 1.5rem 0 .4rem; font-size: .95rem; }
+    .poem-title:first-child { margin-top: 0; }
+    .poem-stanza { line-height: 2.4; white-space: pre-line; margin-bottom: 1.25rem; }
+    .classical-para { line-height: 2.3; margin-bottom: 1.25rem; }
+    .source-note { font-size: .78rem; color: #999; margin-top: 1.5rem; padding-top: .75rem; border-top: 1px solid #f0ede6; }
+    .guide-subtitle { font-size: .92rem; font-weight: 700; color: #5a3820; margin: 1.25rem 0 .5rem; }
+    .guide-list { padding-left: 1.4rem; line-height: 2; }
+    .guide-list li { margin-bottom: .4rem; }
+
+    .content-section {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+    }
+    .content-section h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #8b1a1a;
+      margin-bottom: 1rem;
+      padding-bottom: .4rem;
+      border-bottom: 2px solid #f0e8da;
+    }
+    .coming-soon {
+      color: #aaa;
+      font-size: .9rem;
+      font-style: italic;
+      padding: .75rem 0;
+      text-align: center;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      color: #8b1a1a;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      margin-top: 1rem;
+    }
+    .back-btn:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>📖 南一版國中國文</h1>
+  <nav>
+    <a href="lessons.html">課文目錄</a>
+  </nav>
+</header>
+
+<div class="lesson-detail" id="app">
+  <p style="color:#aaa;margin-top:2rem;">載入中…</p>
+</div>
+
+<script>
+const TEXTS_DATA = { grades: [
+  {
+    grade: 7, label: "國一（七年級）",
+    volumes: [
+      {
+        vol: 1, label: "第一冊（七年級上學期）",
+        lessons: [
+          { no: 1,  title: "夏夜",                            author: "楊喚",             type: "新詩" },
+          { no: 2,  title: "絕句選",                          author: "王之渙、李白、張繼", type: "古典詩" },
+          { no: 3,  title: "紙船印象",                        author: "",                 type: "散文" },
+          { no: 4,  title: "老師的十二樣見面禮",               author: "",                 type: "散文" },
+          { no: 5,  title: "吃冰的滋味",                      author: "古蒙仁",            type: "散文" },
+          { no: 6,  title: "牛背上的呀喝",                    author: "",                 type: "散文" },
+          { no: 7,  title: "鮭魚產卵，力爭上游",               author: "",                 type: "說明文" },
+          { no: 8,  title: "論語選",                          author: "孔子",             type: "古文" },
+          { no: 9,  title: "飛翔的舞者",                      author: "",                 type: "新詩" },
+          { no: 10, title: "值得記憶的小事：日記",             author: "",                 type: "應用文" }
+        ]
+      },
+      {
+        vol: 2, label: "第二冊（七年級下學期）",
+        lessons: [
+          { no: 1,  title: "負荷",                            author: "吳晟",             type: "新詩" },
+          { no: 2,  title: "律詩選",                          author: "",                 type: "古典詩" },
+          { no: 3,  title: "背影",                            author: "朱自清",            type: "散文" },
+          { no: 4,  title: "土芭樂的生存之道",                 author: "",                 type: "說明文" },
+          { no: 5,  title: "兒時記趣",                        author: "沈復",             type: "古文" },
+          { no: 6,  title: "溪頭的竹子",                      author: "",                 type: "散文" },
+          { no: 7,  title: "謝天",                            author: "陳之藩",            type: "散文" },
+          { no: 8,  title: "視力與偏見",                      author: "",                 type: "議論文" },
+          { no: 9,  title: "劉墉寓言作品選",                   author: "劉墉",             type: "寓言" },
+          { no: 10, title: "跨時空的對望：淺談文言文翻譯",      author: "",                 type: "說明文" }
+        ]
+      }
+    ]
+  },
+  {
+    grade: 8, label: "國二（八年級）",
+    volumes: [
+      {
+        vol: 3, label: "第三冊（八年級上學期）",
+        lessons: [
+          { no: 1,  title: "新詩選（傘、風箏）",               author: "",                 type: "新詩" },
+          { no: 2,  title: "聲音鐘",                          author: "",                 type: "散文" },
+          { no: 3,  title: "我所知道的康橋",                   author: "",                 type: "散文" },
+          { no: 4,  title: "五柳先生傳",                      author: "陶淵明",            type: "古文" },
+          { no: 5,  title: "差不多先生傳",                     author: "胡適",             type: "小說" },
+          { no: 6,  title: "張釋之執法",                      author: "司馬遷",            type: "古文" },
+          { no: 7,  title: "蜜蜂的讚美",                      author: "",                 type: "散文" },
+          { no: 8,  title: "愛蓮說",                          author: "周敦頤",            type: "古文" },
+          { no: 9,  title: "棒球靈魂學",                      author: "",                 type: "散文" },
+          { no: 10, title: "指尖上的故事：簡報",               author: "",                 type: "說明文" }
+        ]
+      },
+      {
+        vol: 4, label: "第四冊（八年級下學期）",
+        lessons: [
+          { no: 1,  title: "歲月跟著",                        author: "",                 type: "新詩" },
+          { no: 2,  title: "古詩選",                          author: "",                 type: "古典詩" },
+          { no: 3,  title: "鳥",                              author: "梁實秋",            type: "散文" },
+          { no: 4,  title: "田園之秋選",                      author: "陳冠學",            type: "散文" },
+          { no: 5,  title: "木蘭詩",                          author: "古樂府",            type: "古典詩" },
+          { no: 6,  title: "深藍的憂鬱",                      author: "",                 type: "散文" },
+          { no: 7,  title: "運動家的風度",                     author: "梁實秋",            type: "議論文" },
+          { no: 8,  title: "談交友",                          author: "",                 type: "議論文" },
+          { no: 9,  title: "為學一首示子姪",                   author: "彭端淑",            type: "古文" },
+          { no: 10, title: "舌尖上的思路：演講",               author: "",                 type: "說明文" }
+        ]
+      }
+    ]
+  },
+  {
+    grade: 9, label: "國三（九年級）",
+    volumes: [
+      {
+        vol: 5, label: "第五冊（九年級上學期）",
+        lessons: [
+          { no: 1,  title: "余光中詩選",                author: "余光中",          type: "新詩" },
+          { no: 2,  title: "詞選",                      author: "李清照、辛棄疾",   type: "古典詞" },
+          { no: 3,  title: "黑與白—虎鯨",               author: "廖鴻基",          type: "記敘文" },
+          { no: 4,  title: "與宋元思書",                author: "吳均",            type: "古文" },
+          { no: 5,  title: "雲和",                      author: "楊佳嫻",          type: "散文" },
+          { no: 6,  title: "山中書",                    author: "陳列",            type: "散文" },
+          { no: 7,  title: "生於憂患，死於安樂",         author: "孟子",            type: "古文" },
+          { no: 8,  title: "在錯誤中學習",              author: "黃永武",           type: "說明文" },
+          { no: 9,  title: "寄弟墨書",                  author: "鄭燮",            type: "古文" },
+          { no: 10, title: "知識與表達的盛宴：專題報告", author: "謝其濬",           type: "說明文" }
+        ]
+      },
+      {
+        vol: 6, label: "第六冊（九年級下學期）",
+        lessons: [
+          { no: 1, title: "一棵開花的樹", author: "席慕蓉",          type: "新詩" },
+          { no: 2, title: "曲選",         author: "馬致遠、白樸",     type: "古典散曲" },
+          { no: 3, title: "人間情分",     author: "張曼娟",           type: "散文" },
+          { no: 4, title: "項鍊",         author: "莫泊桑",           type: "小說" },
+          { no: 5, title: "湖心亭看雪",   author: "張岱",             type: "古文" },
+          { no: 6, title: "水神的指引",   author: "亞榮隆‧撒可努",    type: "記敘文" },
+          { no: 7, title: "常保好奇心",   author: "何飛鵬",           type: "議論文" },
+          { no: 8, title: "買賣人生",     author: "林良",             type: "散文" }
+        ]
+      }
+    ]
+  }
+]};
+
+const TYPE_CLASS = {
+  '新詩': 'poem',
+  '散文': 'prose', '記敘文': 'prose', '說明文': 'prose',
+  '議論文': 'prose', '應用文': 'prose', '寓言': 'prose',
+  '小說': 'fiction',
+  '古典詩': 'classic', '古典詞': 'classic', '古典散曲': 'classic', '古文': 'classic',
+};
+
+const LESSON_CONTENT = {
+  /* ── 第三冊（八年級上學期）── */
+  '3-8': `<p class="classical-para">水陸草木之花，可愛者甚蕃。晉陶淵明獨愛菊；自李唐來，世人盛愛牡丹。予獨愛蓮之出淤泥而不染，濯清漣而不妖，中通外直，不蔓不枝，香遠益清，亭亭靜植，可遠觀而不可褻玩焉。</p>
+<p class="classical-para">予謂：菊，花之隱逸者也；牡丹，花之富貴者也；蓮，花之君子者也。噫！菊之愛，陶後鮮有聞；蓮之愛，同予者何人？牡丹之愛，宜乎眾矣！</p>
+<p class="source-note">宋‧周敦頤〈愛蓮說〉</p>`,
+
+  /* ── 第五冊（九年級上學期）── */
+  '5-1': `<p class="poem-title">一、苗栗明德水庫</p>
+<p class="poem-stanza">森森青翠的深處，是誰
+私藏了這一泓明媚
+只讓童話來投影
+不許世界偷窺
+山之重圍是不會洩密的
+懸夢的吊橋也不會
+驚疑是怎樣誤闖進來的
+正想問一問閒鷺
+這反常的靜有什麼天機
+只見夕涼的長鏡上
+悠悠扇起了一羽素白
+拍著空闊的浩淼
+斜　斜　渡　去</p>
+<p class="poem-title">二、飛瀑</p>
+<p class="poem-stanza">不是失足更不是自盡
+一路從上游奔來
+是來赴懸崖的挑戰
+飛吧，轟動千山的一縱
+把生命揚在半空
+乘著最透徹的一刻
+以往和未來斷然一割
+把危機化成了生機
+這壯烈的交割典禮
+這一去，就是下游了
+那一堆獰怪的亂石
+全在那下面等我
+要把我撞傷，撞碎
+撞成飛沫和漩渦
+卻攔不住我
+向一個出海口
+奔騰而去的決心</p>
+<p class="source-note">選自余光中《高樓對海》，九歌出版，1996 年</p>`,
+
+  '5-2': `<p class="poem-title">一、武陵春（李清照）</p>
+<p class="poem-stanza">風住塵香花已盡，日晚倦梳頭。
+物是人非事事休，欲語淚先流。
+聞說雙溪春尚好，也擬泛輕舟。
+只恐雙溪舴艋舟，載不動、許多愁。</p>
+<p class="poem-title">二、南鄉子‧登京口北固亭有懷（辛棄疾）</p>
+<p class="poem-stanza">何處望神州？滿眼風光北固樓。
+千古興亡多少事，悠悠，不盡長江滾滾流。
+年少萬兜鍪，坐斷東南戰未休。
+天下英雄誰敵手？曹劉。生子當如孫仲謀。</p>`,
+
+  '5-4': `<p class="classical-para">風煙俱淨，天山共色，從流飄蕩，任意東西。自富陽至桐廬，一百許里，奇山異水，天下獨絕。</p>
+<p class="classical-para">水皆縹碧，千丈見底，游魚細石，直視無礙。急湍甚箭，猛浪若奔。</p>
+<p class="classical-para">夾岸高山，皆生寒樹，負勢競上，互相軒邈；爭高直指，千百成峰。泉水激石，泠泠作響；好鳥相鳴，嚶嚶成韻。蟬則千轉不窮，猿則百叫無絕。鳶飛戾天者，望峰息心；經綸世務者，窺谷忘返。橫柯上蔽，在晝猶昏；疏條交映，有時見日。</p>
+<p class="source-note">南朝梁‧吳均〈與宋元思書〉</p>`,
+
+  '5-7': `<p class="classical-para">舜發於畎畝之中，傅說舉於版築之間，膠鬲舉於魚鹽之中，管夷吾舉於士，孫叔敖舉於海，百里奚舉於市。</p>
+<p class="classical-para">故天將降大任於是人也，必先苦其心志，勞其筋骨，餓其體膚，空乏其身，行拂亂其所為，所以動心忍性，曾益其所不能。</p>
+<p class="classical-para">人恆過，然後能改；困於心，衡於慮，而後作；徵於色，發於聲，而後喻。入則無法家拂士，出則無敵國外患者，國恆亡。</p>
+<p class="classical-para">然後知生於憂患，而死於安樂也。</p>
+<p class="source-note">《孟子‧告子下》</p>`,
+
+  '5-9': `<p class="classical-para">十月二十六日得家書，知新置田穫秋稼五百斛，甚喜。而今而後，堪為農夫以沒世矣。</p>
+<p class="classical-para">我想天地間第一等人，只有農夫，而士為四民之末。農夫上者種地百畝，其次七八十畝，其次五六十畝，皆苦其身，勤其力，耕種收穫，以養天下之人。使天下無農夫，舉世皆餓死矣。吾輩讀書人，入則孝，出則弟，守先待後，得志，澤加於民；不得志，修身見於世；所以又高於農夫一等。今則不然，一捧書本，便想中舉人，中進士，作官如何攫取金錢，造大房屋，置多田產。起手便錯走了路頭，後來越做越壞，總沒有個好結果。其不能發達者，鄉里作惡，小頭銳面，更不可當。夫束修自好者，豈無其人？經濟自期，抗懷千古者，亦所在多有；而好人為壞人所累，遂令我輩開不得口。一開口，人便笑曰：「汝輩書生，總是會說，他日居官，便不如此說了。」所以忍氣吞聲，只得捱人笑罵。工人制器利用，賈人搬有運無，皆有便民之處；而士獨於民大不便，無怪乎居四民之末也，且求居四民之末而亦不可得也。</p>
+<p class="classical-para">愚兄平生最重農夫。新招佃地人，必須待之以禮。彼稱我為主人，我稱彼為客戶；主客原是對待之義，我何貴而彼何賤乎？</p>
+<p class="classical-para">吾家業地雖有三百畝，總是典產，不可久恃。將來須買田二百畝，予兄弟二人，各得百畝足矣，亦古者一夫受田百畝之義也。若再求多，便是占人產業，莫大罪過。天下無田無業者多矣，我獨何人，貪求無厭，窮民將何所措手足乎？</p>
+<p class="source-note">清‧鄭燮〈濰縣署中寄舍弟墨第一書〉</p>`,
+
+  /* ── 第六冊（九年級下學期）── */
+  '6-1': `<p class="poem-stanza">如何讓你遇見我
+在我最美麗的時刻
+為這
+我已在佛前
+求了五百年
+求祂讓我們結一段塵緣
+
+佛於是把我化作一棵樹
+長在你必經的路旁
+陽光下慎重地開滿了花
+朵朵都是我前世的盼望
+
+當你走近
+請你細聽
+那顫抖的葉是我等待的熱情
+而當你終於無視地走過
+在你身後落了一地的
+朋友啊
+那不是花瓣
+是我凋零的心</p>
+<p class="source-note">席慕蓉〈一棵開花的樹〉，選自《七里香》，圓神出版</p>`,
+
+  '6-2': `<p class="poem-title">一、天淨沙‧秋思（馬致遠）</p>
+<p class="poem-stanza">枯藤老樹昏鴉，
+小橋流水人家，
+古道西風瘦馬。
+夕陽西下，
+斷腸人在天涯。</p>
+<p class="poem-title">二、天淨沙‧秋（白樸）</p>
+<p class="poem-stanza">孤村落日殘霞，
+輕煙老樹寒鴉，
+一點飛鴻影下。
+青山綠水，
+白草紅葉黃花。</p>
+<p class="source-note">元‧馬致遠、白樸 散曲〈天淨沙〉</p>`,
+
+  '6-3': `<p>下著梅雨的季節，令人心浮動，生活煩躁起來。尤其是上下課時，捧抱著大疊教材講義，站立在潮濕的街頭，看著呼嘯如流水奔湧的大小車輛，卻攔不住一輛出租車；那份狼狽，無由地令人沮喪。</p>
+<p>也是在這樣綿綿密密、雨勢不絕的午後，匆忙地趕赴學校。搭車之前，先尋覓一家書店，影印若干講義給學生，因為時間的緊迫，我幾乎是跑進去的，迅速將原稿遞交從未謀面的年輕女店員。</p>
+<p>那女孩有一雙細白的手掌，鋪好原稿，開動機器，她先影印了兩張尺寸較小的，而後將兩張影印稿並排成一大張。抬起頭，她微笑地說：「這樣不必印八十張，只要四十張就夠了。好不好？」</p>
+<p>我詫異地看著她繼續工作，復印機一陣又一陣的光亮閃動裡，也詫異地看著她的美麗。</p>
+<p>原本，她的五官平凡無奇，然而，此刻當我的心靈完全沉浸在這樣寧謐的氣氛中，她不再是個平凡女孩。</p>
+<p>我看著她仔細地把每一張整齊裁開、疊好，裝進袋子，連同原稿還給我。付出雙倍勞力，卻只換來一半的酬勞，她主動做了，還顯得格外光采。</p>
+<p>離開的時候，我的腳步緩慢了些。焦躁的感覺，全消散在一位陌生人善意的溫柔中。並且發現，即使行走在雨裡，也可以是一種自在心情。</p>
+<p>第二次去澎湖，不再有亢奮的熱烈情緒，反而能在陽光海洋以外，見到更多更好的東西。</p>
+<p>望安島上任意放牧的牛群；剛從海中撈起的白色珊瑚，用指甲輕劃，會發出「箏」的聲響。夏日渡海，從望安到了將軍嶼，一個距離現代文明更遠的地方。有些廢棄的房舍，仍保留著傳統建築，只是屋瓦和窗欞都綠草盈眼了。島上看不見什麼人，可以清晰聽見鞋底與水泥地的摩擦，這是一個隔絕的世界呢！</p>
+<p>轉過一叢叢怒放的天人菊，在某個不起眼的牆角，我被一樣事物驚住了──一具藍色的公用電話。</p>
+<p>不過是一具公用電話，市區裡多得幾乎感覺不到；然而，當我想到當初設置的計畫，渡海前來裝置、架接海底電纜……那麼複雜龐大的工程，只為了讓一個人傳遞他的平安或者思念，忍不住要為這樣妥貼的心意而動容了。</p>
+<p>一個月的大陸探親之旅，到了後期已如殘兵敗將，恨不能丟盔棄甲。大城市的火車站規模不小，從下車的月台到出口，往往得上上下下攀爬許多階梯，那些大小箱子早超過我們的負荷能力了。</p>
+<p>那一次，在南方的城市，車站階梯上，我們一步也掙不動，只好停下來喘息。一個年輕男子從我們身邊走過，像其它旅客一樣；而不同的是他注視著我們，並且也停下來。</p>
+<p>「我來吧！」他溫和地說著，用捲起衣袖的手臂抬起大箱子，一直送到頂端。我們感激地向他道謝，他只笑一笑，很快地隱遁在人群中。</p>
+<p>著白色襯衫的背影，笑容像學生般純凈，是我在那次旅行中，最美的印象了。</p>
+<p>現代人因為寂寞的緣故，特別熱中於「談」情「說」愛；然而又因為吝嗇的緣故，情與愛都構築在薄弱的基礎上。</p>
+<p>有時候，承受陌生人的好意，也會忍不住自問，我曾經替不相干的旁人做過什麼事？</p>
+<p>人與世界的諸多聯繫，其實常常是與陌生人的交接，而對於這些人，無欲無求，反而能夠表現出真正的善意。</p>
+<p>每一次照面，如芰荷映水，都是最珍貴而美麗的人間情分。</p>
+<p class="source-note">張曼娟〈人間情分〉，選自《人間情分》，皇冠出版</p>`,
+
+  '6-5': `<p class="classical-para">崇禎五年十二月，余住西湖。大雪三日，湖中人鳥聲俱絕。是日更定矣，余拏一小舟，擁毳衣爐火，獨往湖心亭看雪。霧凇沆碭，天與雲與山與水，上下一白。湖上影子，惟長堤一痕、湖心亭一點、與余舟一芥、舟中人兩三粒而已。</p>
+<p class="classical-para">到亭上，有兩人鋪氈對坐，一童子燒酒爐正沸。見余，大喜曰：「湖中焉得更有此人！」拉余同飲。余強飲三大白而別。問其姓氏，是金陵人，客此。及下船，舟子喃喃曰：「莫說相公癡，更有癡似相公者！」</p>
+<p class="source-note">明‧張岱〈湖心亭看雪〉，選自《陶庵夢憶》</p>`,
+};
+
+const LESSON_GUIDE = {
+  '3-8': `<h3 class="guide-subtitle">寫作背景</h3>
+<p>1063 年（宋仁宗嘉祐八年），周敦頤在江西南康擔任地方官，於官衙前挖池種蓮，日日對蓮沉思，遂寫下此文。當時北宋官場風氣腐敗，許多官員熱衷鑽營、攀附權貴。周敦頤面對「要不要同流合污」的困境，以蓮花為喻，寄託自己的人生選擇。</p>
+<p>文中實為一個「三選一」的表態：</p>
+<ul class="guide-list">
+  <li><strong>菊（隱逸）：</strong>代表陶淵明——辭官歸隱，潔身自好。周敦頤欽佩，但不選擇。</li>
+  <li><strong>牡丹（富貴）：</strong>代表當時多數官員——趨炎附勢、追名逐利。周敦頤嘆息諷刺。</li>
+  <li><strong>蓮（君子）：</strong>代表周敦頤自己——留在官場，卻保持清白操守。這才是他的答案。</li>
+</ul>
+<p>周敦頤是宋代<strong>理學（新儒學）的開山鼻祖</strong>，程顥、程頤兄弟皆出自其門下，再傳至朱熹，影響中國思想數百年。這篇短文正是他「道德修養」哲學的縮影。</p>
+<h3 class="guide-subtitle">延伸：什麼是宋代理學與新儒學？</h3>
+<p>理學的「理」是「天地萬物的根本道理」。理學家想回答：<em>人為什麼應該有道德？道德從哪裡來？</em>他們的答案是：宇宙本身有一套「天理」，人的本性天生符合這套理，修養的目標就是克制私欲、讓天理重新顯現。</p>
+<p>原來的孔孟儒學主要講人際關係（仁義禮智）和政治實踐，缺少宇宙論與形而上學。唐代佛教、道教哲學盛行，讓許多知識分子覺得儒學「膚淺」。宋代儒學家的策略是<strong>把佛道的哲學深度填回儒家框架</strong>，但把終極目標從「成佛」改回「成為君子、治理天下」——這便是「新儒學」。</p>
+<h3 class="guide-subtitle">延伸：北宋官場為何腐敗？</h3>
+<ul class="guide-list">
+  <li><strong>冗官問題：</strong>宋朝科舉取士人數遠超前代，官位有限，大量官員領薪卻無事可做，形成龐大寄生階層。</li>
+  <li><strong>科舉考詩文，不考治國：</strong>官員上任後不懂財政、水利、司法，實權落入底層吏員手中，貪腐難以監督。</li>
+  <li><strong>新舊黨爭：</strong>王安石變法（1069年）引發改革派與保守派輪流執政、相互清洗，政治風氣極度惡劣。</li>
+  <li><strong>軍事壓力榨乾財政：</strong>長期對遼、西夏、金支付歲幣，財政壓力逼使地方官員向百姓多收稅、多撈油水。</li>
+</ul>
+<p>周敦頤就是在這個環境下寫下〈愛蓮說〉——選擇蓮花，既不辭官避世，也不同流合污，是對那個時代最清醒的回應。</p>
+<h3 class="guide-subtitle">寫作手法</h3>
+<p><strong>託物言志：</strong>借蓮花的高潔形象，隱喻作者君子般的人格理想。</p>
+<p><strong>對比手法：</strong>以「菊」象徵隱士、「牡丹」象徵趨炎附勢之人，與「蓮」的君子形象形成鮮明對比，突顯蓮花的高雅脫俗。</p>
+<h3 class="guide-subtitle">蓮花意象解析</h3>
+<ul class="guide-list">
+  <li><strong>出淤泥而不染：</strong>身處污濁環境卻不沾染污穢，象徵在惡劣環境中仍能堅守操守。</li>
+  <li><strong>濯清漣而不妖：</strong>經清水洗滌卻不顯得妖豔，象徵樸實莊重、不嬌柔造作。</li>
+  <li><strong>中通外直，不蔓不枝：</strong>內心通達、行為正直，不攀附權貴、不旁生枝節。</li>
+  <li><strong>香遠益清，亭亭靜植：</strong>香氣傳得遠卻越發清幽，儀態端莊，令人敬重。</li>
+  <li><strong>可遠觀而不可褻玩焉：</strong>只能從遠處欣賞，不可輕慢褻瀆，表現君子的尊嚴。</li>
+</ul>
+<p><strong>結語評價：</strong>結尾感嘆愛菊者少（隱士難尋），愛蓮者更稀（君子罕見），偏偏愛牡丹者眾（趨炎附勢者多），以此諷刺世風，寄寓惆悵之情。</p>`,
+};
+
+function findLesson(vol, no) {
+  for (const grade of TEXTS_DATA.grades) {
+    for (const volume of grade.volumes) {
+      if (+volume.vol === +vol) {
+        const lesson = volume.lessons.find(l => +l.no === +no);
+        if (lesson) return { grade, volume, lesson };
+      }
+    }
+  }
+  return null;
+}
+
+function prevNext(vol, no) {
+  const allLessons = [];
+  for (const grade of TEXTS_DATA.grades)
+    for (const volume of grade.volumes)
+      for (const lesson of volume.lessons)
+        allLessons.push({ vol: volume.vol, no: lesson.no, title: lesson.title });
+  const idx = allLessons.findIndex(l => +l.vol === +vol && +l.no === +no);
+  return {
+    prev: idx > 0 ? allLessons[idx - 1] : null,
+    next: idx < allLessons.length - 1 ? allLessons[idx + 1] : null
+  };
+}
+
+function render() {
+  const params = new URLSearchParams(location.search);
+  const vol = params.get('vol');
+  const no  = params.get('no');
+  const found = findLesson(vol, no);
+  const app = document.getElementById('app');
+
+  if (!found) {
+    app.innerHTML = '<p style="color:#c00;margin-top:2rem;">找不到課文，請返回目錄。</p>'
+      + '<a class="back-btn" href="lessons.html">← 返回目錄</a>';
+    return;
+  }
+
+  const { grade, volume, lesson } = found;
+  const pending = lesson.title.includes('待確認');
+  const tc = TYPE_CLASS[lesson.type] || 'default';
+  const nav = prevNext(vol, no);
+  const body  = LESSON_CONTENT[`${vol}-${no}`] || null;
+  const guide = LESSON_GUIDE[`${vol}-${no}`]   || null;
+
+  document.title = `${lesson.title} — 南一版國中國文`;
+
+  app.innerHTML = `
+    <div class="breadcrumb">
+      <a href="lessons.html">課文目錄</a> › ${grade.label} › ${volume.label}
+    </div>
+
+    <div class="lesson-hero">
+      <span class="lesson-vol-label">${volume.label} 第 ${lesson.no} 課</span>
+      <h1>${lesson.title}</h1>
+      <div class="lesson-meta">
+        ${lesson.author ? `<span class="meta-author">✍ ${lesson.author}</span>` : ''}
+        ${lesson.type   ? `<span class="meta-type ${tc}">${lesson.type}</span>` : ''}
+      </div>
+    </div>
+
+    ${pending ? `
+    <div class="content-section">
+      <h2>課文資訊</h2>
+      <p class="coming-soon">此課文資料尚待確認，敬請期待。</p>
+    </div>` : `
+    <div class="content-section">
+      <h2>課文內容</h2>
+      ${body
+        ? `<div class="lesson-body">${body}</div>`
+        : `<p class="coming-soon">課文內容即將上線。</p>`}
+    </div>
+    <div class="content-section">
+      <h2>課文導讀</h2>
+      ${guide
+        ? `<div class="lesson-body">${guide}</div>`
+        : `<p class="coming-soon">導讀說明即將上線。</p>`}
+    </div>
+    <div class="content-section">
+      <h2>生字詞</h2>
+      <p class="coming-soon">生字詞注音與解釋即將上線。</p>
+    </div>`}
+
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:.5rem;">
+      ${nav.prev
+        ? `<a class="back-btn" href="lesson.html?vol=${nav.prev.vol}&no=${nav.prev.no}">← 上一課：${nav.prev.title}</a>`
+        : `<span></span>`}
+      <a class="back-btn" href="lessons.html">↑ 返回目錄</a>
+      ${nav.next
+        ? `<a class="back-btn" href="lesson.html?vol=${nav.next.vol}&no=${nav.next.no}">下一課：${nav.next.title} →</a>`
+        : `<span></span>`}
+    </div>`;
+}
+
+render();
+</script>
+</body>
+</html>

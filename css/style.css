@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: #f5f5f0;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+/* ── 頂部導覽 ── */
+header {
+  background: #8b1a1a;
+  color: #fff;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+header h1 { font-size: 1.1rem; font-weight: 700; flex: 1; }
+header nav a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: .875rem;
+  padding: .4rem .8rem;
+  border-radius: 6px;
+  transition: background .15s;
+}
+header nav a:hover, header nav a.active { background: rgba(255,255,255,0.18); color: #fff; }
+
+/* ── 年級分頁按鈕 ── */
+.grade-tabs {
+  display: flex;
+  gap: .5rem;
+  padding: 1.25rem 1.5rem .5rem;
+  border-bottom: 2px solid #e0ddd5;
+  background: #faf9f6;
+}
+.tab-btn {
+  padding: .45rem 1.2rem;
+  border: 2px solid #c9b99a;
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #5a4a38;
+  transition: all .2s;
+}
+.tab-btn:hover { background: #f0e8da; }
+.tab-btn.active { background: #8b1a1a; border-color: #8b1a1a; color: #fff; }
+
+/* ── 主內容 ── */
+main { max-width: 960px; margin: 0 auto; padding: 1.5rem; }
+
+.grade-section { display: none; }
+.grade-section.visible { display: block; }
+
+.grade-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #8b1a1a;
+  margin-bottom: 1.25rem;
+  padding-bottom: .5rem;
+  border-bottom: 3px solid #8b1a1a;
+}
+
+/* ── 冊別卡片 ── */
+.volume-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+.volume-header {
+  background: #f0e8da;
+  padding: .75rem 1.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #5a3820;
+  border-bottom: 1px solid #e0d5c5;
+}
+
+/* ── 課文列表 ── */
+.lesson-list { list-style: none; }
+.lesson-item {
+  padding: .7rem 1.25rem;
+  border-bottom: 1px solid #f0ede6;
+  transition: background .15s;
+}
+.lesson-item:last-child { border-bottom: none; }
+.lesson-item:hover { background: #fdf8f2; }
+.lesson-item.pending { opacity: .5; }
+
+.lesson-link {
+  display: grid;
+  grid-template-columns: 48px 1fr 160px 80px;
+  align-items: center;
+  gap: .75rem;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.lesson-link:hover .lesson-title { color: #8b1a1a; text-decoration: underline; }
+
+.lesson-no {
+  font-size: .8rem;
+  font-weight: 700;
+  color: #8b1a1a;
+  background: #f9efe5;
+  border-radius: 50%;
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.lesson-title { font-size: .95rem; font-weight: 500; }
+.lesson-author { font-size: .85rem; color: #6b5744; }
+.lesson-type {
+  font-size: .75rem;
+  background: #e8f4e8;
+  color: #2d6e2d;
+  padding: .2rem .6rem;
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+}
+.lesson-type.classic { background: #e8e4f4; color: #4a3d8f; }
+.lesson-type.prose   { background: #fef3e2; color: #8b5e00; }
+.lesson-type.fiction { background: #fce8f0; color: #8b1a4a; }
+.lesson-type.poem    { background: #e8f0fe; color: #1a4a8b; }
+.lesson-type.pending-tag {
+  background: #f0f0f0; color: #999; font-style: italic;
+}
+
+/* ── RWD ── */
+@media (max-width: 600px) {
+  .lesson-link { grid-template-columns: 38px 1fr; }
+  .lesson-author, .lesson-type { display: none; }
+  header h1 { font-size: .95rem; }
+}

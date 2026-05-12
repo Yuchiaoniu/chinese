@@ -1,0 +1,76 @@
+{
+  "grades": [
+    {
+      "grade": 8,
+      "label": "國二（八年級）",
+      "volumes": [
+        {
+          "vol": 3,
+          "label": "第三冊（八年級上學期）",
+          "lessons": [
+            { "no": 1, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 2, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 3, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 4, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 5, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 6, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 7, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 8, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 9, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 10, "title": "（待確認）", "author": "", "type": "" }
+          ]
+        },
+        {
+          "vol": 4,
+          "label": "第四冊（八年級下學期）",
+          "lessons": [
+            { "no": 1, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 2, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 3, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 4, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 5, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 6, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 7, "title": "（待確認）", "author": "", "type": "" },
+            { "no": 8, "title": "（待確認）", "author": "", "type": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "grade": 9,
+      "label": "國三（九年級）",
+      "volumes": [
+        {
+          "vol": 5,
+          "label": "第五冊（九年級上學期）",
+          "lessons": [
+            { "no": 1,  "title": "余光中詩選",           "author": "余光中",        "type": "新詩" },
+            { "no": 2,  "title": "詞選",                 "author": "李清照、辛棄疾", "type": "詞（古典）" },
+            { "no": 3,  "title": "黑與白—虎鯨",          "author": "廖鴻基",        "type": "記敘文" },
+            { "no": 4,  "title": "與宋元思書",           "author": "吳均",          "type": "古文（書信）" },
+            { "no": 5,  "title": "雲和",                 "author": "楊佳嫻",        "type": "散文" },
+            { "no": 6,  "title": "山中書",               "author": "陳列",          "type": "散文" },
+            { "no": 7,  "title": "生於憂患，死於安樂",   "author": "孟子",          "type": "古文（議論）" },
+            { "no": 8,  "title": "在錯誤中學習",         "author": "黃永武",        "type": "說明文" },
+            { "no": 9,  "title": "寄弟墨書",             "author": "鄭燮",          "type": "古文（書信）" },
+            { "no": 10, "title": "知識與表達的盛宴：專題報告", "author": "謝其濬",  "type": "說明文" }
+          ]
+        },
+        {
+          "vol": 6,
+          "label": "第六冊（九年級下學期）",
+          "lessons": [
+            { "no": 1, "title": "一棵開花的樹",   "author": "席慕蓉",          "type": "新詩" },
+            { "no": 2, "title": "曲選",           "author": "馬致遠、白樸",    "type": "散曲（古典）" },
+            { "no": 3, "title": "人間情分",       "author": "張曼娟",          "type": "散文" },
+            { "no": 4, "title": "項鍊",           "author": "莫泊桑",          "type": "小說" },
+            { "no": 5, "title": "湖心亭看雪",     "author": "張岱",            "type": "古文（記）" },
+            { "no": 6, "title": "水神的指引",     "author": "亞榮隆‧撒可努",  "type": "記敘文" },
+            { "no": 7, "title": "常保好奇心",     "author": "何飛鵬",          "type": "議論文" },
+            { "no": 8, "title": "買賣人生",       "author": "林良",            "type": "散文" }
+          ]
+        }
+      ]
+    }
+  ]
+}
