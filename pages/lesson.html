@@ -63,9 +63,18 @@
     .poem-stanza { line-height: 2.4; white-space: pre-line; margin-bottom: 1.25rem; }
     .classical-para { line-height: 2.3; margin-bottom: 1.25rem; }
     .source-note { font-size: .78rem; color: #999; margin-top: 1.5rem; padding-top: .75rem; border-top: 1px solid #f0ede6; }
+    .trans { font-size: .85rem; color: #888; line-height: 1.7; margin: .2rem 0 1.1rem; padding-left: .75rem; border-left: 2px solid #f0e8da; }
     .guide-subtitle { font-size: .92rem; font-weight: 700; color: #5a3820; margin: 1.25rem 0 .5rem; }
     .guide-list { padding-left: 1.4rem; line-height: 2; }
     .guide-list li { margin-bottom: .4rem; }
+
+    .vocab-entry { border-left: 3px solid #e0d5c5; padding: .45rem .75rem .45rem 1rem; margin-bottom: 1rem; }
+    .vocab-header { display: flex; align-items: baseline; gap: .5rem; margin-bottom: .25rem; }
+    .vocab-char { font-size: 1.35rem; font-weight: 700; color: #8b1a1a; }
+    .vocab-pinyin { font-size: .82rem; color: #999; }
+    .vocab-sentence { font-size: .88rem; color: #5a4a38; margin-bottom: .2rem; }
+    .vocab-sentence mark { background: #fef3c7; padding: 0 .1rem; border-radius: 2px; font-style: normal; }
+    .vocab-def { font-size: .9rem; color: #2a2a2a; line-height: 1.7; }
 
     .content-section {
       background: #fff;
@@ -233,6 +242,24 @@ const TYPE_CLASS = {
 
 const LESSON_CONTENT = {
   /* ── 第三冊（八年級上學期）── */
+  '3-6': `<p class="classical-para">釋之為廷尉。上行，出中渭橋，有一人從橋下走出，乘輿馬驚。</p>
+<p class="trans">張釋之擔任廷尉。有一次，皇帝出巡經過中渭橋，有一個人從橋底下跑出來，驚嚇到皇帝座車的馬。</p>
+<p class="classical-para">於是使騎捕，屬之廷尉。</p>
+<p class="trans">於是皇帝下令隨行的騎兵把那個人逮捕，移交給廷尉辦理。</p>
+<p class="classical-para">釋之治問。曰：「縣人來，聞蹕，匿橋下。久之，以為行已過，即出，見乘輿車騎即走耳。」</p>
+<p class="trans">張釋之審理審問。那人說：「我是外縣的百姓，聽到管制交通的號令，便躲在橋底下。過了很久，以為皇帝的隊伍已經過去，就走出來，沒想到一看到皇帝的車馬，就嚇得跑了起來。」</p>
+<p class="classical-para">廷尉奏當：一人犯蹕，當罰金。</p>
+<p class="trans">廷尉向皇帝報告判決：這個人觸犯了交通管制，依法判處罰金。</p>
+<p class="classical-para">文帝怒曰：「此人親驚吾馬，吾馬賴柔和，令他馬，固不敗傷我乎？而廷尉乃當之罰金！」</p>
+<p class="trans">文帝非常生氣地說：「這個人親自嚇到了我的馬，幸虧我的馬性情柔順，如果換作別的馬，難道不會讓我摔傷嗎？而廷尉你竟然只判他罰金！」</p>
+<p class="classical-para">釋之曰：「法者，天子所與天下公共也。今法如此而更重之，是法不信於民也。」</p>
+<p class="trans">張釋之說：「法律，是天子跟天下人共同制定的遵守準則。現在法律規定就是這樣，卻要加重他的罪，這會使法律無法在人民心中建立信用。」</p>
+<p class="classical-para">「且方其時，上使立誅之則已。今既下廷尉，廷尉，天下之平也，一傾而天下用法皆為輕重，民安所錯其手足？唯陛下察之。」</p>
+<p class="trans">「況且在事情發生當下，皇上如果立刻殺了他也就罷了。現在既然已交給廷尉審理，廷尉是天下執法的公平標準，只要稍微有所偏斜，全天下的判決就會跟著輕重失準，人民將不知如何是好。希望陛下明察。」</p>
+<p class="classical-para">良久，上曰：「廷尉當是也。」</p>
+<p class="trans">過了很久，皇帝才說：「廷尉的判決才是對的。」</p>
+<p class="source-note">漢‧司馬遷《史記‧張釋之馮唐列傳》</p>`,
+
   '3-8': `<p class="classical-para">水陸草木之花，可愛者甚蕃。晉陶淵明獨愛菊；自李唐來，世人盛愛牡丹。予獨愛蓮之出淤泥而不染，濯清漣而不妖，中通外直，不蔓不枝，香遠益清，亭亭靜植，可遠觀而不可褻玩焉。</p>
 <p class="classical-para">予謂：菊，花之隱逸者也；牡丹，花之富貴者也；蓮，花之君子者也。噫！菊之愛，陶後鮮有聞；蓮之愛，同予者何人？牡丹之愛，宜乎眾矣！</p>
 <p class="source-note">宋‧周敦頤〈愛蓮說〉</p>`,
@@ -364,6 +391,19 @@ const LESSON_CONTENT = {
 };
 
 const LESSON_GUIDE = {
+  '3-6': `<h3 class="guide-subtitle">故事背景</h3>
+<p>本文選自司馬遷《史記‧張釋之馮唐列傳》，記敘西漢文帝時期的司法官張釋之，面對帝王的怒火，仍堅守法律尊嚴、維護法治精神的故事。</p>
+<h3 class="guide-subtitle">人物介紹</h3>
+<ul class="guide-list">
+  <li><strong>張釋之：</strong>西漢名臣，擔任廷尉（最高司法官），以剛正不阿、秉公執法著稱。</li>
+  <li><strong>漢文帝：</strong>劉恆，以寬仁著稱的皇帝，雖一時發怒，最終仍接受張釋之的判決，是歷史上少見的明君典範。</li>
+  <li><strong>闖橋之人：</strong>外縣平民，因未能及時躲避皇帝車駕而驚嚇到御馬，成為這場法律風波的核心人物。</li>
+</ul>
+<h3 class="guide-subtitle">核心主旨</h3>
+<p><strong>法律之前人人平等：</strong>張釋之強調天子不能因個人喜怒隨意加重刑罰，法律的公信力高於一切。</p>
+<p><strong>法治重於人治：</strong>「法者，天子所與天下公共也」——法律是天下人共同的準則，不是統治者的私器。「一傾而天下用法皆為輕重」說明司法標準一旦動搖，全天下的法制秩序都會崩潰。</p>
+<p><strong>尊重專業、雅量納諫：</strong>漢文帝雖貴為天子，在情緒平復後仍接受廷尉的專業判斷，展現明君的自我節制與雅量。</p>`,
+
   '3-8': `<h3 class="guide-subtitle">寫作背景</h3>
 <p>1063 年（宋仁宗嘉祐八年），周敦頤在江西南康擔任地方官，於官衙前挖池種蓮，日日對蓮沉思，遂寫下此文。當時北宋官場風氣腐敗，許多官員熱衷鑽營、攀附權貴。周敦頤面對「要不要同流合污」的困境，以蓮花為喻，寄託自己的人生選擇。</p>
 <p>文中實為一個「三選一」的表態：</p>
@@ -396,6 +436,123 @@ const LESSON_GUIDE = {
   <li><strong>可遠觀而不可褻玩焉：</strong>只能從遠處欣賞，不可輕慢褻瀆，表現君子的尊嚴。</li>
 </ul>
 <p><strong>結語評價：</strong>結尾感嘆愛菊者少（隱士難尋），愛蓮者更稀（君子罕見），偏偏愛牡丹者眾（趨炎附勢者多），以此諷刺世風，寄寓惆悵之情。</p>`,
+};
+
+const LESSON_VOCAB = {
+  '3-6': `
+<h3 class="guide-subtitle">官職與制度</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">廷尉</span></div>
+  <p class="vocab-def">西漢主管司法的最高官吏，職責是審理重大案件並向皇帝報告判決結果，相當於今日的司法部長。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">蹕</span><span class="vocab-pinyin">ㄅㄧˋ（bì）</span></div>
+  <p class="vocab-sentence">聞<mark>蹕</mark>，匿橋下</p>
+  <p class="vocab-def">帝王出巡時禁止行人通行的交通管制命令。古代皇帝出行前，官員會先大聲呼喝清道，稱為「警蹕」。</p>
+</div>
+<h3 class="guide-subtitle">容易誤解的字</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">走</span></div>
+  <p class="vocab-sentence">見乘輿車騎即<mark>走</mark>耳</p>
+  <p class="vocab-def">文言文中「走」指「奔跑」，不是今日的「行走」（行走古稱「行」或「步」）。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">令</span></div>
+  <p class="vocab-sentence"><mark>令</mark>他馬，固不敗傷我乎</p>
+  <p class="vocab-def">此處「令」是「假使、如果」的意思，是文言文假設語氣的用法，不是「命令」。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">固</span></div>
+  <p class="vocab-sentence"><mark>固</mark>不敗傷我乎</p>
+  <p class="vocab-def">「難道、豈」，表示反問語氣，加強質疑的力道。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">乃</span></div>
+  <p class="vocab-sentence">廷尉<mark>乃</mark>當之罰金</p>
+  <p class="vocab-def">「竟然」，表示出乎意料的轉折，帶有強烈不滿的語氣。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">屬</span><span class="vocab-pinyin">ㄓㄨˇ（zhǔ）</span></div>
+  <p class="vocab-sentence">屬之廷尉</p>
+  <p class="vocab-def">「交付、託付」，不念 ㄕㄨˇ（屬於）。「屬之廷尉」意為把案件交付給廷尉審理。</p>
+</div>
+<h3 class="guide-subtitle">重要詞組</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">奏當</span><span class="vocab-pinyin">ㄉㄤ（dāng）</span></div>
+  <p class="vocab-sentence">廷尉<mark>奏當</mark>：一人犯蹕，當罰金</p>
+  <p class="vocab-def">判決完畢後向皇帝報告結果。「當」（ㄉㄤ）是「判決罪名」之意，不念 ㄉㄤˋ（應當）。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">天下之平</span></div>
+  <p class="vocab-sentence">廷尉，<mark>天下之平</mark>也</p>
+  <p class="vocab-def">「平」本指衡量輕重的器具，此引申為「公平的標準」。廷尉是全天下執法輕重的基準，不能有所偏差。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">民安所錯其手足</span></div>
+  <p class="vocab-sentence"><mark>民安所錯其手足</mark>？</p>
+  <p class="vocab-def">「安所」是「哪裡、何處」；「錯」是「安置、安放」。全句意為「人民將不知道把手腳放在哪裡」，形容法制混亂時人民惶恐無所適從的狀態。</p>
+</div>`,
+
+  '3-8': `
+<h3 class="guide-subtitle">容易讀錯的字</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">鮮</span><span class="vocab-pinyin">xiǎn（不念 xiān）</span></div>
+  <p class="vocab-sentence">陶後<mark>鮮</mark>有聞</p>
+  <p class="vocab-def">很少、罕見。此字有兩讀：xiān 指新鮮，xiǎn 指稀少。課文中為 xiǎn，是最常見的考題陷阱。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">蔓</span><span class="vocab-pinyin">màn</span></div>
+  <p class="vocab-sentence">不<mark>蔓</mark>不枝</p>
+  <p class="vocab-def">名詞「藤蔓」，此處作動詞，意為橫向蔓延爬行。與「枝」對應：蔓是橫向擴展，枝是旁生枝節。</p>
+</div>
+<h3 class="guide-subtitle">意思與現代不同的字</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">妖</span><span class="vocab-pinyin">yāo</span></div>
+  <p class="vocab-sentence">濯清漣而不<mark>妖</mark></p>
+  <p class="vocab-def">現代多指妖怪，此處意為「過於豔麗、嬌媚造作」。蓮花雖經清水洗滌，卻不顯得俗豔——這是一種節制之美。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">枝</span><span class="vocab-pinyin">zhī（動詞用法）</span></div>
+  <p class="vocab-sentence">不蔓不<mark>枝</mark></p>
+  <p class="vocab-def">名詞「枝幹」，此處作動詞，意為「旁生枝節、橫向分叉」，比喻人不依附他人、不節外生枝。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">宜乎</span><span class="vocab-pinyin">yí hū</span></div>
+  <p class="vocab-sentence"><mark>宜乎</mark>眾矣</p>
+  <p class="vocab-def">「難怪、也就理所當然了」，帶有諷刺語氣。此處諷刺世人趨炎附勢、愛慕富貴乃意料之中的事。</p>
+</div>
+<h3 class="guide-subtitle">需要解釋的詞組</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">褻玩</span><span class="vocab-pinyin">xiè wán</span></div>
+  <p class="vocab-sentence">可遠觀而不可<mark>褻玩</mark>焉</p>
+  <p class="vocab-def">「褻」指輕慢、不莊重；「褻玩」指隨意把玩、輕薄對待。表達蓮花——也就是君子——的尊嚴不可冒犯。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">亭亭靜植</span></div>
+  <p class="vocab-sentence"><mark>亭亭靜植</mark></p>
+  <p class="vocab-def">「亭亭」指高挺端莊的樣子；「植」通「立」，意為挺立。整句形容蓮花筆直高挺地靜靜佇立，比喻君子的從容氣度。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">隱逸</span><span class="vocab-pinyin">yǐn yì</span></div>
+  <p class="vocab-sentence">菊，花之<mark>隱逸</mark>者也</p>
+  <p class="vocab-def">「隱」指隱居，「逸」指超脫世俗，合指避世隱居、不問政事的人，對應陶淵明的人格形象。</p>
+</div>
+<h3 class="guide-subtitle">文言虛字</h3>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">予</span><span class="vocab-pinyin">yú</span></div>
+  <p class="vocab-sentence"><mark>予</mark>獨愛蓮</p>
+  <p class="vocab-def">文言文第一人稱「我」，與「吾」、「余」相同，但各有細微語境差異。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">焉</span><span class="vocab-pinyin">yān</span></div>
+  <p class="vocab-sentence">不可褻玩<mark>焉</mark></p>
+  <p class="vocab-def">句尾語氣助詞，加強語氣，類似「啊」、「呢」，無實義。</p>
+</div>
+<div class="vocab-entry">
+  <div class="vocab-header"><span class="vocab-char">噫</span><span class="vocab-pinyin">yī</span></div>
+  <p class="vocab-sentence"><mark>噫</mark>！菊之愛……</p>
+  <p class="vocab-def">感嘆詞，帶有惋惜、感慨的語氣，相當於現代的「唉！」，用於引出後文的嘆息。</p>
+</div>`,
 };
 
 function findLesson(vol, no) {
@@ -442,6 +599,7 @@ function render() {
   const nav = prevNext(vol, no);
   const body  = LESSON_CONTENT[`${vol}-${no}`] || null;
   const guide = LESSON_GUIDE[`${vol}-${no}`]   || null;
+  const vocab = LESSON_VOCAB[`${vol}-${no}`]   || null;
 
   document.title = `${lesson.title} — 南一版國中國文`;
 
@@ -478,7 +636,9 @@ function render() {
     </div>
     <div class="content-section">
       <h2>生字詞</h2>
-      <p class="coming-soon">生字詞注音與解釋即將上線。</p>
+      ${vocab
+        ? `<div class="lesson-body">${vocab}</div>`
+        : `<p class="coming-soon">生字詞注音與解釋即將上線。</p>`}
     </div>`}
 
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:.5rem;">
