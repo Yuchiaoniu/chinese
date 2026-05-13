@@ -110,6 +110,25 @@
       margin-top: 1rem;
     }
     .back-btn:hover { text-decoration: underline; }
+
+    /* ── 練習題 ── */
+    .quiz-wrap { }
+    .quiz-score-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+    .quiz-score-badge { font-size: .88rem; background: #f0e8da; padding: .3rem .85rem; border-radius: 20px; color: #5a3820; font-weight: 600; }
+    .quiz-item { background: #fdf9f5; border: 1px solid #e8e0d5; border-radius: 10px; padding: 1.1rem 1.3rem; margin-bottom: .9rem; }
+    .quiz-q-no { font-size: .75rem; font-weight: 700; color: #8b1a1a; margin-bottom: .35rem; letter-spacing: .02em; }
+    .quiz-q-text { font-size: .93rem; font-weight: 600; color: #1a1a1a; margin-bottom: .85rem; line-height: 1.75; }
+    .quiz-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .45rem; }
+    @media (max-width: 560px) { .quiz-opts { grid-template-columns: 1fr; } }
+    .quiz-opt { padding: .5rem .85rem; border: 1.5px solid #d5cabb; border-radius: 7px; background: #fff; font-size: .86rem; font-family: inherit; cursor: pointer; text-align: left; transition: background .12s, border-color .12s; color: #2a2a2a; line-height: 1.55; }
+    .quiz-opt:hover:not(:disabled) { background: #f0e8da; border-color: #b8a888; }
+    .quiz-opt.correct { background: #d4edda; border-color: #28a745; color: #155724; font-weight: 600; }
+    .quiz-opt.wrong   { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+    .quiz-opt:disabled { cursor: default; }
+    .quiz-exp { margin-top: .7rem; font-size: .84rem; line-height: 1.75; color: #5a4a38; background: #fef8f0; border-left: 3px solid #c9b99a; padding: .5rem .8rem; border-radius: 0 6px 6px 0; }
+    .quiz-final { text-align: center; font-size: 1.05rem; font-weight: 700; color: #8b1a1a; padding: 1rem; background: #fef8f0; border-radius: 10px; margin: .75rem 0; }
+    .quiz-reset { display: block; width: 100%; margin-top: .75rem; padding: .65rem; background: #8b1a1a; color: #fff; border: none; border-radius: 8px; font-size: .93rem; font-family: inherit; cursor: pointer; font-weight: 600; transition: background .15s; }
+    .quiz-reset:hover { background: #a52020; }
   </style>
 </head>
 <body>
@@ -569,6 +588,71 @@ const LESSON_VOCAB = {
 </div>`,
 };
 
+const LESSON_QUIZ = {
+  '3-6': [
+    { q: "「聞蹕，匿橋下」中「蹕」的意思是？",
+      opts: ["皇帝的座車", "帝王出巡禁止通行的管制號令", "橋梁的名稱", "宮廷護衛"],
+      ans: 1, exp: "「蹕」(ㄅㄧˋ)指帝王出巡時禁止行人通行的號令。那人聽到警蹕後才躲到橋下。" },
+    { q: "「見乘輿車騎即走耳」中，「走」的文言意思是？",
+      opts: ["行走", "離開現場", "奔跑", "投降逃竄"],
+      ans: 2, exp: "文言文的「走」指「奔跑」，今日意思的「行走」古文用「行」或「步」。" },
+    { q: "「令他馬，固不敗傷我乎」中「令」的意思是？",
+      opts: ["命令", "使得、讓", "假使、如果", "傳令"],
+      ans: 2, exp: "「令」在此是文言假設語氣，意為「假如、如果」，不是「命令」。漢文帝用此假設強調潛在危險。" },
+    { q: "「廷尉乃當之罰金」中「乃」表達什麼語氣？",
+      opts: ["於是、就", "竟然（表驚訝不滿）", "才、然後", "就是、正是"],
+      ans: 1, exp: "此「乃」表示出乎意料，帶有漢文帝強烈的不滿語氣，相當於「竟然」。" },
+    { q: "「屬之廷尉」中「屬」的正確讀音與意思是？",
+      opts: ["ㄕㄨˇ，隸屬", "ㄓㄨˇ，交付、託付", "ㄓㄨˋ，囑咐", "ㄓㄨˊ，連接"],
+      ans: 1, exp: "此處「屬」(ㄓㄨˇ)是「交付、託付」之意，即把案件移交給廷尉審理。常見讀錯為 ㄕㄨˇ。" },
+    { q: "「廷尉，天下之平也」中「平」最貼切的意思是？",
+      opts: ["平靜、穩定", "平等對待", "公平的標準、基準", "和平共處"],
+      ans: 2, exp: "「平」本指衡量輕重的器具，引申為「公平的標準」。廷尉是全天下執法輕重的基準，不能偏差。" },
+    { q: "「民安所錯其手足」中「安所」的意思是？",
+      opts: ["安全的地方", "安置好自己", "哪裡、什麼地方", "安心的方法"],
+      ans: 2, exp: "「安所」是文言用法，意為「哪裡、什麼地方」，全句形容法制混亂時人民惶恐無所適從。" },
+    { q: "那個人為什麼躲在橋下？",
+      opts: ["想偷皇帝的財物", "害怕被車騎踐踏，緊急躲避", "聽到警蹕號令，依規迴避皇帝隊伍", "受人指使準備謀刺皇帝"],
+      ans: 2, exp: "他自述「聞蹕，匿橋下」——是聽到警蹕號令後按規定躲避，並非有惡意。後因誤判時機走出才驚到御馬。" },
+    { q: "張釋之的最終判決是？",
+      opts: ["死刑", "流放邊疆", "鞭刑五十", "罰金"],
+      ans: 3, exp: "「廷尉奏當：一人犯蹕，當罰金。」依照法律，觸犯交通管制令只判罰金，這是依法辦事的結果。" },
+    { q: "漢文帝對此判決不滿，主要原因是？",
+      opts: ["認為張釋之未請示就擅自判決", "認為那人嚇到馬，若換別的馬可能讓他受傷", "懷疑那人是刺客", "認為罰金太少，程序有誤"],
+      ans: 1, exp: "文帝說「吾馬賴柔和，令他馬，固不敗傷我乎」——這是情緒性的假設推論，而非法律事實。" },
+    { q: "張釋之如何反駁漢文帝的加刑要求？",
+      opts: ["強調那人是無辜百姓，不應重判", "說明擅自加刑會損害法律在人民心中的公信力", "指出皇帝的馬沒受傷，損失輕微", "請皇帝親自審理以示公正"],
+      ans: 1, exp: "張釋之說「今法如此而更重之，是法不信於民也」——隨皇帝情緒加重刑罰，法律便失去公信力。" },
+    { q: "「且方其時，上使立誅之則已」這句話的用意是？",
+      opts: ["建議文帝以後要立刻殺人", "批評文帝當時優柔寡斷", "說明若要加刑應在現場立刻執行；既已移交廷尉就應依法辦理", "請求文帝赦免此人"],
+      ans: 2, exp: "事發當場殺人是帝王的現場裁量，但既已交廷尉走司法程序，就不能事後插手改判——這是程序正義的核心。" },
+    { q: "「良久，上曰：廷尉當是也」，「良久」兩字主要說明什麼？",
+      opts: ["文帝聽不懂張釋之的論點", "文帝等群臣商議完才表態", "文帝沉默了很長時間，讓怒氣消退後真正想通了", "文帝故意拖延，不情願服從"],
+      ans: 2, exp: "「良久」是全文最有力的細節——沉默裡有怒氣消退、自我克制、心悅誠服的過程，是漢文帝被稱為明君的原因之一。" },
+    { q: "本文選自哪部著作？",
+      opts: ["《漢書》（班固）", "《資治通鑑》（司馬光）", "《史記》（司馬遷）", "《後漢書》（范曄）"],
+      ans: 2, exp: "本文出自《史記‧張釋之馮唐列傳》，作者是西漢史學家司馬遷。《史記》是中國第一部紀傳體通史。" },
+    { q: "「一傾而天下用法皆為輕重」，「一傾」指的是？",
+      opts: ["廷尉官職被廢除", "皇帝犯了一次嚴重錯誤", "廷尉的司法標準稍有偏差", "人民開始不服從法律"],
+      ans: 2, exp: "「傾」是傾斜，廷尉的標準只要稍一偏斜，全天下法官判案就失去依據，輕重無定準。" },
+    { q: "張釋之擔任的「廷尉」是什麼官職？",
+      opts: ["管理國家財政的官員", "皇帝的貼身侍衛長", "西漢主管司法的最高官員", "負責外交事務的官員"],
+      ans: 2, exp: "廷尉是西漢最高司法官，審理重大案件並向皇帝報告判決，地位相當於現代的司法部長。" },
+    { q: "關於司馬遷的「李陵之禍」，下列何者正確？",
+      opts: ["司馬遷因誤殺李陵而受罰", "司馬遷為兵敗降匈奴的李陵辯護，觸怒漢武帝，被迫接受宮刑", "司馬遷因李陵案被流放邊疆", "司馬遷與李陵都是同期武將"],
+      ans: 1, exp: "李陵兵敗投降，群臣落井下石，司馬遷獨自辯護。漢武帝以「誣罔」罪判他死刑，他選擇宮刑以存活，繼續完成《史記》。" },
+    { q: "「文景之治」的施政特色是？",
+      opts: ["嚴刑峻法、大興土木", "輕徭薄賦、休養生息，以寬仁納諫著稱", "大力對外征戰、拓展版圖", "崇尚佛道、不問政事"],
+      ans: 1, exp: "漢文帝與景帝開創「文景之治」，以寬仁治國、輕徭薄賦為原則，是中國歷史著名的治世。" },
+    { q: "張釋之說「法者，天子所與天下公共也」，最核心的法治主張是？",
+      opts: ["法律由天子制定，天子可以隨時修改", "法律是所有人共同遵守的準則，天子也不能隨意加重刑罰", "人民應更努力了解法律", "天子應制定更嚴格的法律保護自身"],
+      ans: 1, exp: "這是全文最重要的法治宣言：法律不是統治者的私器，天下人（包括天子）共同遵守，不得任意逾越。" },
+    { q: "司馬遷在《史記》記錄張釋之這樣的官員，最可能的深層原因是？",
+      opts: ["故事情節精彩，讀者愛看", "漢武帝指派他記錄正面事蹟", "他親身受過帝王凌駕法律的迫害，對堅守原則的官員懷有深刻共鳴", "張釋之是司馬遷的親戚"],
+      ans: 2, exp: "司馬遷因「李陵之禍」親歷帝王無視法律的現實，對張釋之懷有深刻敬佩。《史記》記錄抗爭強權的人物，是借古人之口說出無法直言的話。" }
+  ]
+};
+
 function findLesson(vol, no) {
   for (const grade of TEXTS_DATA.grades) {
     for (const volume of grade.volumes) {
@@ -594,6 +678,84 @@ function prevNext(vol, no) {
   };
 }
 
+function renderQuiz(questions, container) {
+  let answered = 0, correct = 0;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'quiz-wrap';
+
+  const scoreRow = document.createElement('div');
+  scoreRow.className = 'quiz-score-row';
+  const badge = document.createElement('span');
+  badge.className = 'quiz-score-badge';
+  badge.textContent = `得分：0 / ${questions.length}`;
+  scoreRow.appendChild(badge);
+  wrap.appendChild(scoreRow);
+
+  questions.forEach((q, qi) => {
+    const item = document.createElement('div');
+    item.className = 'quiz-item';
+
+    const qno = document.createElement('div');
+    qno.className = 'quiz-q-no';
+    qno.textContent = `第 ${qi + 1} 題`;
+
+    const qtext = document.createElement('div');
+    qtext.className = 'quiz-q-text';
+    qtext.textContent = q.q;
+
+    const opts = document.createElement('div');
+    opts.className = 'quiz-opts';
+
+    const labels = ['Ａ', 'Ｂ', 'Ｃ', 'Ｄ'];
+    q.opts.forEach((opt, oi) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt';
+      btn.textContent = `${labels[oi]}　${opt}`;
+      btn.addEventListener('click', () => {
+        opts.querySelectorAll('.quiz-opt').forEach(b => { b.disabled = true; });
+        if (oi === q.ans) {
+          btn.classList.add('correct');
+          correct++;
+        } else {
+          btn.classList.add('wrong');
+          opts.querySelectorAll('.quiz-opt')[q.ans].classList.add('correct');
+        }
+        answered++;
+        badge.textContent = `得分：${correct} / ${questions.length}`;
+        const exp = document.createElement('div');
+        exp.className = 'quiz-exp';
+        exp.textContent = `解析：${q.exp}`;
+        item.appendChild(exp);
+        if (answered === questions.length) {
+          const final = document.createElement('div');
+          final.className = 'quiz-final';
+          const pct = Math.round(correct / questions.length * 100);
+          final.textContent = `作答完畢！得分 ${correct} / ${questions.length}（${pct}%）`;
+          wrap.insertBefore(final, reset);
+        }
+      });
+      opts.appendChild(btn);
+    });
+
+    item.appendChild(qno);
+    item.appendChild(qtext);
+    item.appendChild(opts);
+    wrap.appendChild(item);
+  });
+
+  const reset = document.createElement('button');
+  reset.className = 'quiz-reset';
+  reset.textContent = '↺ 重新作答';
+  reset.addEventListener('click', () => {
+    container.innerHTML = '';
+    renderQuiz(questions, container);
+  });
+  wrap.appendChild(reset);
+
+  container.appendChild(wrap);
+}
+
 function render() {
   const params = new URLSearchParams(location.search);
   const vol = params.get('vol');
@@ -614,6 +776,7 @@ function render() {
   const body  = LESSON_CONTENT[`${vol}-${no}`] || null;
   const guide = LESSON_GUIDE[`${vol}-${no}`]   || null;
   const vocab = LESSON_VOCAB[`${vol}-${no}`]   || null;
+  const quiz  = LESSON_QUIZ[`${vol}-${no}`]    || null;
 
   document.title = `${lesson.title} — 南一版國中國文`;
 
@@ -653,7 +816,12 @@ function render() {
       ${vocab
         ? `<div class="lesson-body">${vocab}</div>`
         : `<p class="coming-soon">生字詞注音與解釋即將上線。</p>`}
-    </div>`}
+    </div>
+    ${quiz ? `
+    <div class="content-section">
+      <h2>練習題（共 ${quiz.length} 題）</h2>
+      <div id="quiz-container"></div>
+    </div>` : ''}`}
 
     <div style="display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;flex-wrap:wrap;gap:.5rem;">
       ${nav.prev
@@ -664,6 +832,11 @@ function render() {
         ? `<a class="back-btn" href="lesson.html?vol=${nav.next.vol}&no=${nav.next.no}">下一課：${nav.next.title} →</a>`
         : `<span></span>`}
     </div>`;
+
+  if (quiz) {
+    const qc = document.getElementById('quiz-container');
+    if (qc) renderQuiz(quiz, qc);
+  }
 }
 
 render();
