@@ -129,6 +129,19 @@
     .quiz-final { text-align: center; font-size: 1.05rem; font-weight: 700; color: #8b1a1a; padding: 1rem; background: #fef8f0; border-radius: 10px; margin: .75rem 0; }
     .quiz-reset { display: block; width: 100%; margin-top: .75rem; padding: .65rem; background: #8b1a1a; color: #fff; border: none; border-radius: 8px; font-size: .93rem; font-family: inherit; cursor: pointer; font-weight: 600; transition: background .15s; }
     .quiz-reset:hover { background: #a52020; }
+
+    /* ── 逐句導讀 ── */
+    .wt-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid #f0ede6; }
+    .wt-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .wt-no { font-size: .75rem; font-weight: 700; color: #8b1a1a; margin-bottom: .4rem; letter-spacing: .04em; }
+    .wt-sentence { font-size: 1rem; font-weight: 700; color: #1a1a1a; line-height: 2; margin-bottom: .85rem; background: #fdf8f2; padding: .55rem 1rem; border-radius: 8px; border-left: 4px solid #8b1a1a; }
+    .wt-table { width: 100%; border-collapse: collapse; margin-bottom: .85rem; font-size: .86rem; }
+    .wt-table th { background: #f0e8da; color: #5a3820; font-weight: 700; padding: .35rem .65rem; text-align: left; }
+    .wt-table td { padding: .32rem .65rem; border-bottom: 1px solid #f0ede6; vertical-align: top; line-height: 1.65; }
+    .wt-table td:first-child { font-weight: 700; color: #8b1a1a; white-space: nowrap; width: 8rem; }
+    .wt-label { font-size: .72rem; font-weight: 700; color: #aaa; letter-spacing: .08em; margin-bottom: .25rem; }
+    .wt-trans { font-size: .9rem; line-height: 1.85; color: #2a2a2a; background: #f3f5ff; border-left: 3px solid #7b8fcf; padding: .5rem .9rem; border-radius: 0 6px 6px 0; margin-bottom: .65rem; }
+    .wt-note  { font-size: .86rem; line-height: 1.85; color: #5a4a38; background: #fef8f0; border-left: 3px solid #c9b99a; padding: .5rem .9rem; border-radius: 0 6px 6px 0; }
   </style>
 </head>
 <body>
@@ -588,6 +601,151 @@ const LESSON_VOCAB = {
 </div>`,
 };
 
+const LESSON_WALKTHROUGH = {
+  '3-6': `
+<div class="wt-item">
+  <div class="wt-no">第一句</div>
+  <div class="wt-sentence">釋之為廷尉。上行，出中渭橋，有一人從橋下走出，乘輿馬驚。</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>釋之</td><td>張釋之，人名</td></tr>
+    <tr><td>為廷尉</td><td>擔任廷尉（最高司法官）</td></tr>
+    <tr><td>上</td><td>皇帝（漢文帝），古文以「上」指稱天子</td></tr>
+    <tr><td>行</td><td>出巡、行進</td></tr>
+    <tr><td>中渭橋</td><td>橫跨渭水的橋，位於長安城附近</td></tr>
+    <tr><td>走出</td><td>「走」＝奔跑（文言），不是「行走」</td></tr>
+    <tr><td>乘輿</td><td>皇帝的座車</td></tr>
+    <tr><td>馬驚</td><td>拉車的馬受到驚嚇</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">張釋之擔任廷尉。有一次，皇帝出巡經過中渭橋，有一個人從橋底下跑出來，嚇到了皇帝座車的馬。</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">司馬遷起筆極簡，兩件事並列：張釋之的身份、事件的發生。「馬驚」是全文的導火線，後面所有的法律辯論都從這一瞬間展開。</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第二句</div>
+  <div class="wt-sentence">於是使騎捕，屬之廷尉。</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>於是</td><td>於是、接著</td></tr>
+    <tr><td>使</td><td>命令、派遣</td></tr>
+    <tr><td>騎（ㄐㄧˋ）</td><td>騎兵，指皇帝出巡時隨行的武裝騎兵</td></tr>
+    <tr><td>捕</td><td>逮捕</td></tr>
+    <tr><td>屬（ㄓㄨˇ）</td><td>交付、移交，不念 ㄕㄨˇ（隸屬）</td></tr>
+    <tr><td>之</td><td>代指那個人</td></tr>
+    <tr><td>廷尉</td><td>張釋之</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">於是皇帝命令隨行的騎兵將那個人逮捕，移交給廷尉審理。</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">這句極短，卻埋下關鍵伏筆——「屬之廷尉」，皇帝沒有在現場直接處置，而是交給司法官走程序。這個選擇後來成為張釋之辯駁的核心論據：「今既下廷尉……」</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第三句</div>
+  <div class="wt-sentence">釋之治問。曰：「縣人來，聞蹕，匿橋下。久之，以為行已過，即出，見乘輿車騎即走耳。」</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>治問</td><td>審理、訊問（治：處理；問：審問）</td></tr>
+    <tr><td>縣人</td><td>外縣來的百姓，不是京城居民</td></tr>
+    <tr><td>聞蹕</td><td>聽到警蹕號令</td></tr>
+    <tr><td>匿（ㄋㄧˋ）</td><td>躲藏、隱匿</td></tr>
+    <tr><td>久之</td><td>過了很長時間</td></tr>
+    <tr><td>以為行已過</td><td>以為皇帝的隊伍已經過去了</td></tr>
+    <tr><td>即</td><td>就、立刻</td></tr>
+    <tr><td>走</td><td>奔跑（文言），不是「行走」</td></tr>
+    <tr><td>耳</td><td>而已、罷了（語氣詞，表示「就是這樣」）</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">張釋之進行審問。那人說：「我是外縣來的百姓，聽到警蹕號令，就躲到橋底下。等了很久，以為隊伍已經過了，就走出來。沒想到一看到皇帝的車馬，就嚇得跑起來了。」</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">末尾「耳」字是情感核心，語氣輕描淡寫：「我只是下意識跑了起來，就這樣而已。」透過當事人自述，清楚顯示他完全沒有惡意，只是慌張的平民反應。</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第四句</div>
+  <div class="wt-sentence">廷尉奏當：一人犯蹕，當罰金。</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>奏當（ㄉㄤ）</td><td>向皇帝報告判決結果；「當」(ㄉㄤ) 是「判決罪名」之意</td></tr>
+    <tr><td>犯蹕</td><td>觸犯交通管制令</td></tr>
+    <tr><td>當（ㄉㄤ）罰金</td><td>判處罰金，注意此處「當」不念 ㄉㄤˋ（應當）</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">廷尉向皇帝報告判決：此人觸犯了交通管制令，依法判處罰金。</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">「一人犯蹕，當罰金」僅八字，是全文最平靜的一句，卻是最大的爆炸點。張釋之的從容不卑不亢——沒有解釋，沒有道歉，直接奏報法律結論，正是法治信念最有力的展現。</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第五句</div>
+  <div class="wt-sentence">文帝怒曰：「此人親驚吾馬，吾馬賴柔和，令他馬，固不敗傷我乎？而廷尉乃當之罰金！」</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>親</td><td>親自、直接</td></tr>
+    <tr><td>賴</td><td>幸虧、靠著</td></tr>
+    <tr><td>柔和</td><td>性情溫順</td></tr>
+    <tr><td>令</td><td>假使、如果（文言假設語氣）</td></tr>
+    <tr><td>固</td><td>難道（表反問語氣，加強質疑力道）</td></tr>
+    <tr><td>敗傷</td><td>使（我）摔傷、受傷</td></tr>
+    <tr><td>乃</td><td>竟然（表出乎意料的強烈不滿）</td></tr>
+    <tr><td>當之罰金</td><td>只判他罰金</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">漢文帝非常生氣地說：「這個人親自嚇到了我的馬！幸虧我的馬性情溫順，如果換作別的馬，難道不會讓我摔傷嗎？而廷尉你竟然只判他罰金！」</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">文帝的論點是「假如……後果……」，這是情緒性的假設推論，而非法律事實（馬沒有失控，人也沒有受傷）。張釋之沒有正面反駁此邏輯，而是跳到更高層次——法律公信力，這是極高明的諫言策略。</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第六句</div>
+  <div class="wt-sentence">釋之曰：「法者，天子所與天下公共也。今法如此而更重之，是法不信於民也。」</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>法者</td><td>「者」是提頓語氣詞，相當於「……這件事是」</td></tr>
+    <tr><td>所與天下公共</td><td>與天下人共同遵守的</td></tr>
+    <tr><td>今法如此</td><td>現在法律規定就是這樣</td></tr>
+    <tr><td>更重之</td><td>加重他的刑罰</td></tr>
+    <tr><td>是法不信於民也</td><td>這樣做，法律在人民心中便失去了公信力</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">張釋之說：「法律，是天子跟天下人共同遵守的準則。現在法律規定就是這樣，卻要加重他的刑罰——這樣做，法律在人民心中便失去了公信力。」</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">「天子所與天下公共也」是全文最重要的一句，也是中國古代法治思想的精華。張釋之直接點明：法律不是皇帝的私器，天子也在法律的約束之內，不能因個人情緒加重刑罰。</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第七句</div>
+  <div class="wt-sentence">「且方其時，上使立誅之則已。今既下廷尉，廷尉，天下之平也，一傾而天下用法皆為輕重，民安所錯其手足？唯陛下察之。」</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>且</td><td>況且、再者（遞進連詞）</td></tr>
+    <tr><td>方其時</td><td>在事情發生的當下</td></tr>
+    <tr><td>立誅之則已</td><td>立刻殺了他也就算了（表示那是另一種處置方式）</td></tr>
+    <tr><td>既下廷尉</td><td>既然已經移交給廷尉審理</td></tr>
+    <tr><td>天下之平</td><td>天下執法輕重的公平基準；「平」本指衡器</td></tr>
+    <tr><td>一傾</td><td>稍微偏斜、失去公正</td></tr>
+    <tr><td>用法皆為輕重</td><td>判案輕重都失去了準則</td></tr>
+    <tr><td>安所</td><td>哪裡、什麼地方（文言疑問用法）</td></tr>
+    <tr><td>錯</td><td>安置、放置</td></tr>
+    <tr><td>唯陛下察之</td><td>希望陛下明察（謙遜的收尾語）</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">「況且，在事情發生當下，皇上如果立刻殺了他，那也就算了。但現在既然已經交給廷尉審理，廷尉是天下執法輕重的公平標準，只要稍一偏斜，全天下的判案就都失去準則，人民將不知所措。希望陛下明察。」</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">此句包含兩個論點：①「當場殺了則已」——承認皇帝有現場裁量權，但那個時機已過，不能事後翻案；②「廷尉，天下之平也」——一旦進入司法程序，就必須遵守公平標準，皇帝不能插手改判。這是中國古代程序正義最早的清晰表述之一。</div>
+</div>
+
+<div class="wt-item">
+  <div class="wt-no">第八句</div>
+  <div class="wt-sentence">良久，上曰：「廷尉當是也。」</div>
+  <table class="wt-table"><thead><tr><th>詞</th><th>說明</th></tr></thead><tbody>
+    <tr><td>良久</td><td>過了很長時間（良：甚、很）</td></tr>
+    <tr><td>上</td><td>皇帝</td></tr>
+    <tr><td>當是也</td><td>判決是對的</td></tr>
+  </tbody></table>
+  <div class="wt-label">白話翻譯</div>
+  <div class="wt-trans">過了很長時間，皇帝才說：「廷尉的判決才是對的。」</div>
+  <div class="wt-label">重點提示</div>
+  <div class="wt-note">「良久」是全文最有分量的兩個字。這段沉默裡有：怒氣消退→理性回歸→自我反省→心悅誠服的完整過程。文帝不是被說服，而是真正「想通了」。末句「廷尉當是也」六字，沒有任何修飾，乾淨有力，反而比長篇大論更動人。這也是漢文帝被史家稱為明君的重要原因。</div>
+</div>
+`,
+};
+
 const LESSON_QUIZ = {
   '3-6': [
     { q: "「聞蹕，匿橋下」中「蹕」的意思是？",
@@ -773,10 +931,11 @@ function render() {
   const pending = lesson.title.includes('待確認');
   const tc = TYPE_CLASS[lesson.type] || 'default';
   const nav = prevNext(vol, no);
-  const body  = LESSON_CONTENT[`${vol}-${no}`] || null;
-  const guide = LESSON_GUIDE[`${vol}-${no}`]   || null;
-  const vocab = LESSON_VOCAB[`${vol}-${no}`]   || null;
-  const quiz  = LESSON_QUIZ[`${vol}-${no}`]    || null;
+  const body      = LESSON_CONTENT[`${vol}-${no}`]     || null;
+  const guide     = LESSON_GUIDE[`${vol}-${no}`]       || null;
+  const vocab     = LESSON_VOCAB[`${vol}-${no}`]       || null;
+  const walkthrough = LESSON_WALKTHROUGH[`${vol}-${no}`] || null;
+  const quiz      = LESSON_QUIZ[`${vol}-${no}`]        || null;
 
   document.title = `${lesson.title} — 南一版國中國文`;
 
@@ -817,6 +976,11 @@ function render() {
         ? `<div class="lesson-body">${vocab}</div>`
         : `<p class="coming-soon">生字詞注音與解釋即將上線。</p>`}
     </div>
+    ${walkthrough ? `
+    <div class="content-section">
+      <h2>逐句導讀</h2>
+      <div class="lesson-body">${walkthrough}</div>
+    </div>` : ''}
     ${quiz ? `
     <div class="content-section">
       <h2>練習題（共 ${quiz.length} 題）</h2>
