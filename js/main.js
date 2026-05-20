@@ -90,14 +90,12 @@ const TEXTS_DATA = { grades: [
       {
         vol: 6, label: "第六冊（九年級下學期）",
         lessons: [
-          { no: 1, title: "一棵開花的樹", author: "席慕蓉",          type: "新詩" },
-          { no: 2, title: "曲選",         author: "馬致遠、白樸",     type: "古典散曲" },
-          { no: 3, title: "人間情分",     author: "張曼娟",           type: "散文" },
-          { no: 4, title: "項鍊",         author: "莫泊桑",           type: "小說" },
-          { no: 5, title: "湖心亭看雪",   author: "張岱",             type: "古文" },
-          { no: 6, title: "水神的指引",   author: "亞榮隆‧撒可努",    type: "記敘文" },
-          { no: 7, title: "常保好奇心",   author: "何飛鵬",           type: "議論文" },
-          { no: 8, title: "買賣人生",     author: "林良",             type: "散文" }
+          { no: 1, title: "一棵開花的樹",                             author: "席慕蓉",         type: "新詩" },
+          { no: 2, title: "曲選：(一)沉醉東風漁父詞　(二)天淨沙秋思", author: "白樸、馬致遠",  type: "古典散曲" },
+          { no: 3, title: "水神的指引",                               author: "亞榮隆‧撒可努", type: "記敘文" },
+          { no: 4, title: "項鍊",                                     author: "莫泊桑",         type: "小說" },
+          { no: 5, title: "湖心亭看雪",                               author: "張岱",           type: "古文" },
+          { no: 6, title: "鳳凰木",                                   author: "馮勳",           type: "散文" }
         ]
       }
     ]

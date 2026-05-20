@@ -60,14 +60,17 @@
           "vol": 6,
           "label": "第六冊（九年級下學期）",
           "lessons": [
-            { "no": 1, "title": "一棵開花的樹",   "author": "席慕蓉",          "type": "新詩" },
-            { "no": 2, "title": "曲選",           "author": "馬致遠、白樸",    "type": "散曲（古典）" },
-            { "no": 3, "title": "人間情分",       "author": "張曼娟",          "type": "散文" },
-            { "no": 4, "title": "項鍊",           "author": "莫泊桑",          "type": "小說" },
-            { "no": 5, "title": "湖心亭看雪",     "author": "張岱",            "type": "古文（記）" },
-            { "no": 6, "title": "水神的指引",     "author": "亞榮隆‧撒可努",  "type": "記敘文" },
-            { "no": 7, "title": "常保好奇心",     "author": "何飛鵬",          "type": "議論文" },
-            { "no": 8, "title": "買賣人生",       "author": "林良",            "type": "散文" }
+            { "no": 1, "title": "一棵開花的樹",                                      "author": "席慕蓉",         "type": "新詩",       "genre": "抒情", "language": "白話" },
+            { "no": 2, "title": "曲選：(一)沉醉東風漁父詞　(二)天淨沙秋思",          "author": "白樸、馬致遠",   "type": "散曲（古典）","genre": "抒情", "language": "文言" },
+            { "no": 3, "title": "水神的指引",                                         "author": "亞榮隆‧撒可努", "type": "記敘文",     "genre": "記敘", "language": "白話", "note": "原住民神話" },
+            { "no": 4, "title": "項鍊",                                               "author": "莫泊桑",         "type": "小說",       "genre": "記敘", "language": "白話", "note": "國外短篇小說" },
+            { "no": 5, "title": "湖心亭看雪",                                         "author": "張岱",           "type": "古文（記）", "genre": "記敘", "language": "文言" },
+            { "no": 6, "title": "鳳凰木",                                             "author": "馮勳",           "type": "散文",       "genre": "抒情", "language": "白話", "note": "搭配畢業季" }
+          ],
+          "supplement": [
+            { "no": "s1", "title": "勤訓",   "author": "李文勛", "type": "古文", "genre": "經典文章", "language": "文言", "note": "南一獨家收錄" },
+            { "no": "s2", "title": "人間情分","author": "張曼娟", "type": "散文", "genre": "時事議題", "language": "白話" },
+            { "no": "s3", "title": "座右銘", "author": "崔瑗",   "type": "古文", "genre": "語文增能", "language": "文言", "note": "南一獨家收錄" }
           ]
         }
       ]
