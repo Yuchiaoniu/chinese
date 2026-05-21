@@ -5,31 +5,31 @@ const TEXTS_DATA = { grades: [
       {
         vol: 1, label: "第一冊（七年級上學期）",
         lessons: [
-          { no: 1,  title: "夏夜",                            author: "楊喚",             type: "新詩" },
-          { no: 2,  title: "絕句選",                          author: "王之渙、李白、張繼", type: "古典詩" },
-          { no: 3,  title: "紙船印象",                        author: "",                 type: "散文" },
-          { no: 4,  title: "老師的十二樣見面禮",               author: "",                 type: "散文" },
-          { no: 5,  title: "吃冰的滋味",                      author: "古蒙仁",            type: "散文" },
-          { no: 6,  title: "牛背上的呀喝",                    author: "",                 type: "散文" },
-          { no: 7,  title: "鮭魚產卵，力爭上游",               author: "",                 type: "說明文" },
-          { no: 8,  title: "論語選",                          author: "孔子",             type: "古文" },
-          { no: 9,  title: "飛翔的舞者",                      author: "",                 type: "新詩" },
-          { no: 10, title: "值得記憶的小事：日記",             author: "",                 type: "應用文" }
+          { no: 1,  title: "夏夜",                            author: "楊喚",                   type: "新詩" },
+          { no: 2,  title: "老師的十二個見面禮",               author: "簡媜",                   type: "散文" },
+          { no: 3,  title: "鮭魚產卵，力爭上游",               author: "邵廣昭",                  type: "說明文" },
+          { no: 4,  title: "吃冰的滋味",                      author: "古蒙仁",                  type: "散文" },
+          { no: 5,  title: "絕句選",                          author: "王之渙、李白、張繼",        type: "古典詩" },
+          { no: 6,  title: "飛羽的舞者",                      author: "張文亮",                  type: "散文" },
+          { no: 7,  title: "牛背上的吞嚥",                    author: "李潼",                   type: "散文" },
+          { no: 8,  title: "論語選",                          author: "孔子弟子及再傳弟子",        type: "古文" },
+          { no: 9,  title: "紙船印象",                        author: "洪醒夫",                  type: "散文" },
+          { no: 10, title: "故鄉的桂花雨",                    author: "琦君",                   type: "散文" }
         ]
       },
       {
         vol: 2, label: "第二冊（七年級下學期）",
         lessons: [
-          { no: 1,  title: "負荷",                            author: "吳晟",             type: "新詩" },
-          { no: 2,  title: "律詩選",                          author: "",                 type: "古典詩" },
-          { no: 3,  title: "背影",                            author: "朱自清",            type: "散文" },
-          { no: 4,  title: "土芭樂的生存之道",                 author: "",                 type: "說明文" },
-          { no: 5,  title: "兒時記趣",                        author: "沈復",             type: "古文" },
-          { no: 6,  title: "溪頭的竹子",                      author: "",                 type: "散文" },
-          { no: 7,  title: "謝天",                            author: "陳之藩",            type: "散文" },
-          { no: 8,  title: "視力與偏見",                      author: "",                 type: "議論文" },
-          { no: 9,  title: "劉墉寓言作品選",                   author: "劉墉",             type: "寓言" },
-          { no: 10, title: "跨時空的對望：淺談文言文翻譯",      author: "",                 type: "說明文" }
+          { no: 1,  title: "土芭樂的生存之道",                 author: "劉克襄",                  type: "說明文" },
+          { no: 2,  title: "背影",                            author: "朱自清",                  type: "散文" },
+          { no: 3,  title: "眼力與偏見",                      author: "李家同",                  type: "議論文" },
+          { no: 4,  title: "溪頭的竹子",                      author: "孤獨鉸",                  type: "散文" },
+          { no: 5,  title: "律詩選",                          author: "杜甫、王維",               type: "古典詩" },
+          { no: 6,  title: "劉墉寓言作品選",                   author: "劉墉",                   type: "寓言" },
+          { no: 7,  title: "負荷",                            author: "吳晟",                   type: "新詩" },
+          { no: 8,  title: "兒時記趣",                        author: "沈復",                   type: "古文" },
+          { no: 9,  title: "謝天",                            author: "陳之藩",                  type: "散文" },
+          { no: 10, title: "示愛",                            author: "廖玉蕙",                  type: "散文" }
         ]
       }
     ]
@@ -40,31 +40,31 @@ const TEXTS_DATA = { grades: [
       {
         vol: 3, label: "第三冊（八年級上學期）",
         lessons: [
-          { no: 1,  title: "新詩選（傘、風箏）",               author: "",                 type: "新詩" },
-          { no: 2,  title: "聲音鐘",                          author: "",                 type: "散文" },
-          { no: 3,  title: "我所知道的康橋",                   author: "",                 type: "散文" },
-          { no: 4,  title: "五柳先生傳",                      author: "陶淵明",            type: "古文" },
-          { no: 5,  title: "差不多先生傳",                     author: "胡適",             type: "小說" },
-          { no: 6,  title: "張釋之執法",                      author: "司馬遷",            type: "古文" },
-          { no: 7,  title: "蜜蜂的讚美",                      author: "",                 type: "散文" },
-          { no: 8,  title: "愛蓮說",                          author: "周敦頤",            type: "古文" },
-          { no: 9,  title: "棒球靈魂學",                      author: "",                 type: "散文" },
-          { no: 10, title: "指尖上的故事：簡報",               author: "",                 type: "說明文" }
+          { no: 1,  title: "新詩選：(一)傘(二)風箏",           author: "蓉子、白靈",              type: "新詩" },
+          { no: 2,  title: "五柳先生傳",                      author: "陶淵明",                  type: "古文" },
+          { no: 3,  title: "生之歌選",                        author: "杏林子",                  type: "散文" },
+          { no: 4,  title: "聲音鐘",                          author: "陳黎",                   type: "散文" },
+          { no: 5,  title: "張釋之執法",                      author: "司馬遷",                  type: "古文" },
+          { no: 6,  title: "蜜蜂的讚美",                      author: "秦牧",                   type: "散文" },
+          { no: 7,  title: "差不多先生傳",                     author: "胡適",                   type: "議論文" },
+          { no: 8,  title: "愛蓮說",                          author: "周敦頤",                  type: "古文" },
+          { no: 9,  title: "我所知道的康橋",                   author: "徐志摩",                  type: "散文" },
+          { no: 10, title: "油桐花編織的祕徑",                  author: "徐仁修",                  type: "散文" }
         ]
       },
       {
         vol: 4, label: "第四冊（八年級下學期）",
         lessons: [
-          { no: 1,  title: "歲月跟著",                        author: "",                 type: "新詩" },
-          { no: 2,  title: "古詩選",                          author: "",                 type: "古典詩" },
-          { no: 3,  title: "鳥",                              author: "梁實秋",            type: "散文" },
-          { no: 4,  title: "田園之秋選",                      author: "陳冠學",            type: "散文" },
-          { no: 5,  title: "木蘭詩",                          author: "古樂府",            type: "古典詩" },
-          { no: 6,  title: "深藍的憂鬱",                      author: "",                 type: "散文" },
-          { no: 7,  title: "運動家的風度",                     author: "梁實秋",            type: "議論文" },
-          { no: 8,  title: "談交友",                          author: "",                 type: "議論文" },
-          { no: 9,  title: "為學一首示子姪",                   author: "彭端淑",            type: "古文" },
-          { no: 10, title: "舌尖上的思路：演講",               author: "",                 type: "說明文" }
+          { no: 1,  title: "田園之秋選",                      author: "陳冠學",                  type: "散文" },
+          { no: 2,  title: "古詩選",                          author: "佚名、林幼春",              type: "古典詩" },
+          { no: 3,  title: "開啟的人生寓言",                   author: "王鼎鈞",                  type: "散文" },
+          { no: 4,  title: "歲月超奢",                        author: "向陽",                   type: "新詩" },
+          { no: 5,  title: "木蘭詩",                          author: "佚名",                   type: "古典詩" },
+          { no: 6,  title: "運動家的風度",                     author: "羅家倫",                  type: "議論文" },
+          { no: 7,  title: "深藍的憂鬱",                      author: "黃海",                   type: "散文" },
+          { no: 8,  title: "陋室銘",                          author: "劉禹錫",                  type: "古文" },
+          { no: 9,  title: "鳥",                              author: "梁實秋",                  type: "散文" },
+          { no: 10, title: "秋之底",                          author: "鍾怡雯",                  type: "散文" }
         ]
       }
     ]
@@ -75,16 +75,16 @@ const TEXTS_DATA = { grades: [
       {
         vol: 5, label: "第五冊（九年級上學期）",
         lessons: [
-          { no: 1,  title: "余光中詩選",                author: "余光中",          type: "新詩" },
-          { no: 2,  title: "詞選",                      author: "李清照、辛棄疾",   type: "古典詞" },
-          { no: 3,  title: "黑與白—虎鯨",               author: "廖鴻基",          type: "記敘文" },
-          { no: 4,  title: "與宋元思書",                author: "吳均",            type: "古文" },
-          { no: 5,  title: "雲和",                      author: "楊佳嫻",          type: "散文" },
-          { no: 6,  title: "山中書",                    author: "陳列",            type: "散文" },
-          { no: 7,  title: "生於憂患，死於安樂",         author: "孟子",            type: "古文" },
-          { no: 8,  title: "在錯誤中學習",              author: "黃永武",           type: "說明文" },
-          { no: 9,  title: "寄弟墨書",                  author: "鄭燮",            type: "古文" },
-          { no: 10, title: "知識與表達的盛宴：專題報告", author: "謝其濬",           type: "說明文" }
+          { no: 1,  title: "臺北．淡水",                      author: "朱天衣",                  type: "散文" },
+          { no: 2,  title: "詞選",                            author: "李清照、辛棄疾",            type: "古典詞" },
+          { no: 3,  title: "在錯誤中學習",                    author: "黃永武",                  type: "議論文" },
+          { no: 4,  title: "人生逆境",                        author: "辦蘭",                   type: "議論文" },
+          { no: 5,  title: "與宋元思書",                      author: "吳均",                   type: "古文" },
+          { no: 6,  title: "黑與白——虎鯨",                    author: "廖鴻基",                  type: "記敘文" },
+          { no: 7,  title: "余光中詩選",                      author: "余光中",                  type: "新詩" },
+          { no: 8,  title: "生於憂患死於安樂",                 author: "孟子",                   type: "古文" },
+          { no: 9,  title: "我的太魯閣",                      author: "陳列",                   type: "散文" },
+          { no: 10, title: "傘季",                            author: "周芬伶",                  type: "散文" }
         ]
       },
       {
@@ -95,7 +95,7 @@ const TEXTS_DATA = { grades: [
           { no: 3, title: "水神的指引",                               author: "亞榮隆‧撒可努", type: "記敘文" },
           { no: 4, title: "項鍊",                                     author: "莫泊桑",         type: "小說" },
           { no: 5, title: "湖心亭看雪",                               author: "張岱",           type: "古文" },
-          { no: 6, title: "鳳凰木",                                   author: "馮勳",           type: "散文" }
+          { no: 6, title: "鳳凰木",                                   author: "湧動",           type: "散文" }
         ]
       }
     ]
