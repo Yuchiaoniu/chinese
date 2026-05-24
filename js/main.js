@@ -64,7 +64,8 @@ const TEXTS_DATA = { grades: [
           { no: 7,  title: "深藍的憂鬱",                      author: "黃海",                   type: "散文" },
           { no: 8,  title: "陋室銘",                          author: "劉禹錫",                  type: "古文" },
           { no: 9,  title: "鳥",                              author: "梁實秋",                  type: "散文" },
-          { no: 10, title: "秋之底",                          author: "鍾怡雯",                  type: "散文" }
+          { no: 10, title: "秋之底",                          author: "鍾怡雯",                  type: "散文" },
+          { no: 12, title: "空城計",                          author: "羅貫中",                  type: "小說" }
         ]
       }
     ]
